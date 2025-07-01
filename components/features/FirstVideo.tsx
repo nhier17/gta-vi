@@ -3,6 +3,9 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FirstVideo = () => {
     const videoRef = useRef<HTMLVideoElement | null>(null);
