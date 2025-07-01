@@ -20,7 +20,9 @@ const Jason = () => {
       }
     }).to('.first-vd', { opacity: 0, duration: 1, ease: 'power1.inOut' });
 
-    gsap.to('.jason .img-box', {
+    const tl = gsap.timeline();
+
+    tl.to('.jason .img-box', {
       scrollTrigger: {
         trigger: '.jason',
         start: 'top center',
@@ -28,7 +30,7 @@ const Jason = () => {
         scrub: 2
       }, y: -300, duration: 1, ease: 'power1.inOut'
     }, '<')
-  }, []) 
+  }, []) ;
 
   return (
     <section className="jason">

@@ -11,6 +11,9 @@ const leagueSpartan = League_Spartan({
 export const metadata: Metadata = {
   title: "GTA VI",
   description: "Rockstar Games Brings you GTA VI",
+  icons: {
+    icon: "/images/logo.webp",
+  },
 };
 
 export default function RootLayout({

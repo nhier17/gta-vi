@@ -19,7 +19,9 @@ const Lucia = () => {
           }
         }).to('.second-vd', { opacity: 0, duration: 1, ease: 'power1.inOut' });
 
-        gsap.to('.lucia-life .img-box', {
+        const tl = gsap.timeline()
+
+        tl.to('.lucia-life .img-box', {
           scrollTrigger: {
             trigger: '.lucia-life',
             start: 'top center',
