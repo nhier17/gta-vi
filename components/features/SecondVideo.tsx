@@ -26,13 +26,23 @@ const SecondVideo = () => {
         tl.to('.lucia', { opacity: 1, duration: 1, ease: 'power1.inOut' })
 
         if (videoRef.current) {
-          videoRef.current.onloadedmetadata = () => {
-            if (videoRef.current) {
-              tl.to(videoRef.current, { currentTime: videoRef.current.duration, duration: 3, ease: 'power1.inOut' }, '<')
-            }
+          const video = videoRef.current;
+        
+          const playAnimation = () => {
+            tl.to(video, {
+              currentTime: video.duration,
+              duration: 3,
+              ease: 'power1.inOut'
+            }, '<');
+          };
+        
+          if (video.readyState >= 3) {
+            playAnimation();
+          } else {
+            video.addEventListener('canplaythrough', playAnimation, { once: true });
           }
         }
-      }, [])
+      }, []);
 
     return (
     <section className="lucia">
