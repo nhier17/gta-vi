@@ -7,6 +7,9 @@ import FirstVideo from "@/components/features/FirstVideo";
 import Jason from "@/components/features/Jason";
 import SecondVideo from "@/components/features/SecondVideo";
 import Lucia from "@/components/features/Lucia";
+import Postcard from "@/components/features/Postcard";
+import Outro from "@/components/features/Outro";
+import Final from "@/components/features/Final";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +21,9 @@ export default function Home() {
       <Jason />
       <SecondVideo />
       <Lucia />
+      <Postcard />
+      <Final />
+      <Outro />
     </main>
   );
 }
