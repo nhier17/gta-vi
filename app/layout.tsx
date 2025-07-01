@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {  League_Spartan } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/nav/Navbar";
 
 const leagueSpartan = League_Spartan({
   variable: "--font-league-spartan",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${leagueSpartan.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
