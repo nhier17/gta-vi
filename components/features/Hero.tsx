@@ -17,11 +17,11 @@ const Hero = () => {
         maskPosition: initialMaskPos,
         maskSize: initialMaskSize,
       });
-  
+
       gsap.set('.mask-logo', { marginTop: '-100vh', opacity: 0 });
-  
+
       gsap.set('.entrance-message', { marginTop: '0vh' });
-  
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.hero-section',
@@ -31,7 +31,7 @@ const Hero = () => {
           pin: true,
         }
       });
-  
+
       tl
         .to('.fade-out', { opacity: 0, ease: 'power1.inOut' })
         .to('.scale-out', { scale: 1, ease: 'power1.inOut' })
@@ -41,27 +41,28 @@ const Hero = () => {
           gsap.to('.overlay-logo', { opacity: 0 });
         } }, '<')
         .to('.entrance-message', { duration: 1, ease: 'power1.inOut', maskImage: 'radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)' }, '<')
-    });
-    
+    }, [initialMaskPos, initialMaskSize, maskSize]);
+
   return (
     <section className="hero-section">
-        <div className="size-full mask-wrapper">
+      <div className="size-full mask-wrapper">
         <img src="/images/hero-bg.webp" alt="background" className="scale-out" />
         <img src="/images/hero-text.webp" alt="hero-logo" className="title-logo fade-out" />
         <img  src="/images/watch-trailer.png" alt="trailer" className="trailer-logo fade-out" />
         <div className="play-img fade-out">
-            <Image src="/images/play.png" alt="play" width={32} height={32} className="object-contain ml-1" />
+          <img src="/images/play.png" alt="play" className="w-7 ml-1" />
         </div>
-        </div>
+      </div>
 
-        <div>
-        <Image src="/images/big-hero-text.svg" alt="logo" fill className="object-cover mask-logo" />  
-        </div>
-        <div className="fake-logo-wrapper">
-        <Image src="/images/big-hero-text.svg" alt="logo" fill className="overlay-logo" />
-        </div>
+      <div>
+        <img src="/images/big-hero-text.svg" alt="logo" className="size-full object-cover mask-logo" />
+      </div>
 
-        <ComingSoon />
+      <div className="fake-logo-wrapper">
+        <img src="/images/big-hero-text.svg" className="overlay-logo" />
+      </div>
+
+      <ComingSoon />
     </section>
   )
 }

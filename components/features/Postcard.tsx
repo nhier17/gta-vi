@@ -19,18 +19,22 @@ const Postcard = () => {
             scrub: true,
           }
         })
-    
-        videoRef.current.onloadedmetadata = () => {
-          tl.to(videoRef.current, { currentTime: videoRef.current.duration, duration: 3, ease: 'power1.inOut' }, '<');
+
+        if (videoRef.current) {
+          videoRef.current.onloadedmetadata = () => {
+            if (videoRef.current) {
+              tl.to(videoRef.current, { currentTime: videoRef.current.duration, duration: 3, ease: 'power1.inOut' }, '<');
+            }
+          }
         }
-      });
+      }, []);
 
   return (
     <section className="post-card">
       <div className="animated-gradient-bg" />
 
       <div className="post-card-wrapper group hover:rotate-1 hover:-[1.02] transition duration-700">
-        <img src="/images/overlay.webp" />
+        <img src="/images/overlay.webp" alt="Postcard overlay" />
 
         <video 
           ref={videoRef}
